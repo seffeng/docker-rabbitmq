@@ -1,0 +1,45 @@
+FROM seffeng/alpine:latest
+
+MAINTAINER  seffeng "seffeng@sina.cn"
+
+ARG BASE_DIR="/opt/websrv"
+
+ENV RABBITMQ_NAME=rabbitmq-server-generic-unix-\
+ RABBITMQ_SERVER=rabbitmq_server-\
+ RABBITMQ_VERSION=3.8.11\
+ CONFIG_DIR="${BASE_DIR}/config/rabbitmq"\
+ INSTALL_DIR="${BASE_DIR}/program/rabbitmq"\
+ BASE_PACKAGE=""\
+ EXTEND="erlang"
+
+ENV RABBITMQ_URL="https://github.com/rabbitmq/rabbitmq-server/releases/download/v${RABBITMQ_VERSION}/${RABBITMQ_NAME}${RABBITMQ_VERSION}.tar.xz"
+
+WORKDIR /tmp
+
+RUN \
+ wget ${RABBITMQ_URL} &&\
+ xz -d ${RABBITMQ_NAME}${RABBITMQ_VERSION}.tar.xz &&\
+ tar -xf ${RABBITMQ_NAME}${RABBITMQ_VERSION}.tar &&\
+ mkdir -p ${BASE_DIR}/logs ${BASE_DIR}/tmp ${CONFIG_DIR} ${INSTALL_DIR} &&\
+ rm -rf ${INSTALL_DIR} && mv ${RABBITMQ_SERVER}${RABBITMQ_VERSION} ${INSTALL_DIR} &&\
+ chmod 777 ${BASE_DIR}/tmp &&\
+ chmod 777 ${BASE_DIR}/logs &&\
+ ln -s ${INSTALL_DIR}/sbin/rabbitmq-defaults /usr/bin/rabbitmq-defaults &&\
+ ln -s ${INSTALL_DIR}/sbin/rabbitmq-diagnostics /usr/bin/rabbitmq-diagnostics &&\
+ ln -s ${INSTALL_DIR}/sbin/rabbitmq-env /usr/bin/rabbitmq-env &&\
+ ln -s ${INSTALL_DIR}/sbin/rabbitmq-plugins /usr/bin/rabbitmq-plugins &&\
+ ln -s ${INSTALL_DIR}/sbin/rabbitmq-queues /usr/bin/rabbitmq-queues &&\
+ ln -s ${INSTALL_DIR}/sbin/rabbitmq-server /usr/bin/rabbitmq-server &&\
+ ln -s ${INSTALL_DIR}/sbin/rabbitmq-upgrade /usr/bin/rabbitmq-upgrade &&\
+ ln -s ${INSTALL_DIR}/sbin/rabbitmqctl /usr/bin/rabbitmqctl &&\
+ rabbitmq-plugins enable --offline rabbitmq_management &&\
+ apk add --update --no-cache ${BASE_PACKAGE} ${EXTEND} &&\
+ rm -rf /var/cache/apk/* &&\
+ rm -rf /tmp/*
+
+VOLUME ["${BASE_DIR}/tmp", "${BASE_DIR}/logs"]
+
+EXPOSE 4369 5671 5672 15691 15692 25672
+EXPOSE 15671 15672
+
+CMD ["rabbitmq-server"]
