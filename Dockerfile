@@ -32,8 +32,8 @@ RUN \
  ln -s ${INSTALL_DIR}/sbin/rabbitmq-server /usr/bin/rabbitmq-server &&\
  ln -s ${INSTALL_DIR}/sbin/rabbitmq-upgrade /usr/bin/rabbitmq-upgrade &&\
  ln -s ${INSTALL_DIR}/sbin/rabbitmqctl /usr/bin/rabbitmqctl &&\
- rabbitmq-plugins enable --offline rabbitmq_management &&\
  apk add --update --no-cache ${BASE_PACKAGE} ${EXTEND} &&\
+ rabbitmq-plugins enable --offline rabbitmq_management &&\
  rm -rf /var/cache/apk/* &&\
  rm -rf /tmp/*
 
