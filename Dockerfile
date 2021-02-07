@@ -16,10 +16,8 @@ ENV RABBITMQ_URL="https://github.com/rabbitmq/rabbitmq-server/releases/download/
 
 WORKDIR /tmp
 
-COPY rabbitmq-server-generic-unix-3.8.11.tar.xz ./
-
 RUN apk add --update --no-cache ${BASE_PACKAGE} ${EXTEND} &&\
- #wget ${RABBITMQ_URL} &&\
+ wget ${RABBITMQ_URL} &&\
  xz -d ${RABBITMQ_NAME}${RABBITMQ_VERSION}.tar.xz &&\
  tar -xf ${RABBITMQ_NAME}${RABBITMQ_VERSION}.tar &&\
  mkdir -p ${BASE_DIR}/logs ${BASE_DIR}/tmp ${CONFIG_DIR} ${INSTALL_DIR} &&\
