@@ -16,12 +16,15 @@ ENV RABBITMQ_URL="https://github.com/rabbitmq/rabbitmq-server/releases/download/
 
 WORKDIR /tmp
 
-RUN \
- wget ${RABBITMQ_URL} &&\
+COPY rabbitmq-server-generic-unix-3.8.11.tar.xz ./
+
+RUN apk add --update --no-cache ${BASE_PACKAGE} ${EXTEND} &&\
+ #wget ${RABBITMQ_URL} &&\
  xz -d ${RABBITMQ_NAME}${RABBITMQ_VERSION}.tar.xz &&\
  tar -xf ${RABBITMQ_NAME}${RABBITMQ_VERSION}.tar &&\
  mkdir -p ${BASE_DIR}/logs ${BASE_DIR}/tmp ${CONFIG_DIR} ${INSTALL_DIR} &&\
  rm -rf ${INSTALL_DIR} && mv ${RABBITMQ_SERVER}${RABBITMQ_VERSION} ${INSTALL_DIR} &&\
+ mkdir -p  ${INSTALL_DIR}/var/log &&\
  chmod 777 ${BASE_DIR}/tmp &&\
  chmod 777 ${BASE_DIR}/logs &&\
  ln -s ${INSTALL_DIR}/sbin/rabbitmq-defaults /usr/bin/rabbitmq-defaults &&\
@@ -32,7 +35,7 @@ RUN \
  ln -s ${INSTALL_DIR}/sbin/rabbitmq-server /usr/bin/rabbitmq-server &&\
  ln -s ${INSTALL_DIR}/sbin/rabbitmq-upgrade /usr/bin/rabbitmq-upgrade &&\
  ln -s ${INSTALL_DIR}/sbin/rabbitmqctl /usr/bin/rabbitmqctl &&\
- apk add --update --no-cache ${BASE_PACKAGE} ${EXTEND} &&\
+ ln -s ${BASE_DIR}/logs ${INSTALL_DIR}/var/log/rabbitmq &&\
  rabbitmq-plugins enable --offline rabbitmq_management &&\
  rm -rf /var/cache/apk/* &&\
  rm -rf /tmp/*
