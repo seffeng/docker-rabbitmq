@@ -45,6 +45,10 @@ $ docker rmi [IMAGE ID]
 ```
 #### 备注
 
+1、[官方网站](https://www.rabbitmq.com)
+
+2、操作命令参考
+
 ```shell
 # 建议容器之间使用网络互通
 ## 1、添加网络[已存在则跳过此步骤]
@@ -78,6 +82,9 @@ $ docker exec -it rabbitmq-alias2 sh
 $ rabbitmqctl stop_app
 $ rabbitmqctl join_cluster rabbit@rabbitmq-alias1
 $ rabbitmqctl start_app
+
+## 4、设置 policy，任意一个节点执行均可
+$ rabbitmqctl set_policy ha-all "^" '{"ha-mode":"all", "ha-sync-mode":"automatic"}'
 
 ## 注意：各节点 hostname 需能正常通讯（ping 通），如果使用非容器名,请增加容器 hosts 配置
 ```
