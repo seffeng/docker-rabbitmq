@@ -37,6 +37,7 @@ RUN apk add --update --no-cache ${BASE_PACKAGE} ${EXTEND} &&\
  rm -rf ${INSTALL_DIR}/etc/rabbitmq &&\
  ln -s ${CONFIG_DIR} ${INSTALL_DIR}/etc/rabbitmq &&\
  rabbitmq-plugins enable --offline rabbitmq_management &&\
+ apk del ${BASE_PACKAGE} &&\
  rm -rf /var/cache/apk/* &&\
  rm -rf /tmp/*
 
