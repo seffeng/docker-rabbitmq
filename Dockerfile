@@ -9,7 +9,7 @@ ENV RABBITMQ_NAME=rabbitmq-server-generic-unix-\
  RABBITMQ_VERSION=3.8.14\
  CONFIG_DIR="${BASE_DIR}/config/rabbitmq"\
  INSTALL_DIR="${BASE_DIR}/program/rabbitmq"\
- BASE_PACKAGE=""\
+ BASE_PACKAGE="xz"\
  EXTEND="erlang"
 
 ENV RABBITMQ_URL="https://github.com/rabbitmq/rabbitmq-server/releases/download/v${RABBITMQ_VERSION}/${RABBITMQ_NAME}${RABBITMQ_VERSION}.tar.xz"
