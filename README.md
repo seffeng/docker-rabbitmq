@@ -3,12 +3,12 @@
 ## 环境
 
 ```
-alpine: ^3.13
-rabbitmq: 3.8.14
+alpine: ^3.15
+rabbitmq: 3.8.26
 ```
 ## 版本说明
 
-* [3.8.14](https://github.com/seffeng/docker-rabbitmq) , [latest](https://github.com/seffeng/docker-rabbitmq)
+* [3.8.26](https://github.com/seffeng/docker-rabbitmq) , [latest](https://github.com/seffeng/docker-rabbitmq)
 
 ## 常用命令：
 
