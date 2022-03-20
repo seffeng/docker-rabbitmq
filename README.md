@@ -1,14 +1,8 @@
 # Docker Alpine RabbitMQ
 
-## 环境
+## 版本
 
-```
-alpine: ^3.15
-rabbitmq: 3.8.26
-```
-## 版本说明
-
-* [3.8.26](https://github.com/seffeng/docker-rabbitmq) , [latest](https://github.com/seffeng/docker-rabbitmq)
+* [3.8.27 , latest](https://github.com/seffeng/docker-rabbitmq/tree/3.8)
 
 ## 常用命令：
 
