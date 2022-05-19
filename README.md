@@ -2,8 +2,8 @@
 
 ## 版本
 
-* [3.10.1 , latest](https://github.com/seffeng/docker-rabbitmq/tree/3.10)
-* [3.9.17](https://github.com/seffeng/docker-rabbitmq/tree/3.9)
+* [3.10.1](https://github.com/seffeng/docker-rabbitmq/tree/3.10)
+* [3.9.17 , latest](https://github.com/seffeng/docker-rabbitmq/tree/3.9)
 * [3.8.31](https://github.com/seffeng/docker-rabbitmq/tree/3.8)
 
 ## 常用命令：
