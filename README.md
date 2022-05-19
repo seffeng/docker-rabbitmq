@@ -1,9 +1,5 @@
 # Docker Alpine RabbitMQ
 
-## 版本
-
-* [3.8.28 , latest](https://github.com/seffeng/docker-rabbitmq/tree/3.8)
-
 ## 常用命令：
 
 ```sh
