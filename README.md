@@ -2,7 +2,9 @@
 
 ## 版本
 
-* [3.11 , 3.11.9 , latest](https://github.com/seffeng/docker-rabbitmq/tree/3.11)
+* [3.13 , 3.13.1 , latest](https://github.com/seffeng/docker-rabbitmq/tree/3.13)
+* [3.12 , 3.12.13](https://github.com/seffeng/docker-rabbitmq/tree/3.12)
+* [3.11 , 3.11.28](https://github.com/seffeng/docker-rabbitmq/tree/3.11)
 * [3.10 , 3.10.18](https://github.com/seffeng/docker-rabbitmq/tree/3.10)
 * [3.9 , 3.9.27](https://github.com/seffeng/docker-rabbitmq/tree/3.9)
 * [3.8 , 3.8.35](https://github.com/seffeng/docker-rabbitmq/tree/3.8)
