@@ -1,4 +1,4 @@
-FROM seffeng/alpine:3.17
+FROM seffeng/alpine:3.19
 
 LABEL author="zxf <seffeng@live.com>"
 
@@ -6,7 +6,7 @@ ARG BASE_DIR="/opt/websrv"
 
 ENV RABBITMQ_NAME=rabbitmq-server-generic-unix-\
  RABBITMQ_SERVER=rabbitmq_server-\
- RABBITMQ_VERSION=3.11.28\
+ RABBITMQ_VERSION=3.13.1\
  CONFIG_DIR="${BASE_DIR}/config/rabbitmq"\
  INSTALL_DIR="${BASE_DIR}/program/rabbitmq"\
  BASE_PACKAGE="xz"\
