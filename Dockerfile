@@ -6,7 +6,7 @@ ARG BASE_DIR="/opt/websrv"
 
 ENV RABBITMQ_NAME=rabbitmq-server-generic-unix-\
  RABBITMQ_SERVER=rabbitmq_server-\
- RABBITMQ_VERSION=3.11.9\
+ RABBITMQ_VERSION=3.11.28\
  CONFIG_DIR="${BASE_DIR}/config/rabbitmq"\
  INSTALL_DIR="${BASE_DIR}/program/rabbitmq"\
  BASE_PACKAGE="xz"\
